@@ -13,7 +13,7 @@
             <div class="logo">سینما سیتی <span class="logo-subtitle">پخش آنلاین و دانلود</span></div>
             <nav>
                 <ul>
-                    <li><a href="#" class="active">صفحه اصلی</a></li>
+                    <li><a href="#" class="active" id="first-li">صفحه اصلی</a></li>
                     <li><a href="#">فیلم</a></li>
                     <li><a href="#">سریال</a></li>
                     <li><a href="#">هنرمندان</a></li>
@@ -72,7 +72,7 @@
                 <div class="simple-search">
                     <h3>جستجوی ساده فیلم و سریال</h3>
                     <div class="search-box">
-                        <input type="text" placeholder="نام فیلم، سریال یا انیمیشنی که به در نظر دارید">
+                        <input type="text" placeholder="🔍  نام فیلم، سریال یا انیمیشنی که به در نظر دارید">
                         <button class="btn btn-primary">جستجو</button>
                     </div>
                 </div>
@@ -117,7 +117,7 @@
                         </div>
                         <div class="filter-group">
                             <label>بازیگران</label>
-                            <input type="text" placeholder="Brad Pitt">
+                            <input type="text" placeholder="Brad Pitt" class = "filter-input">
                         </div>
                         <div class="filter-group">
                             <label>رده سنی</label>
@@ -125,7 +125,7 @@
                         </div>
                         <div class="filter-group">
                             <label>کارگردان</label>
-                            <input type="text" placeholder="Brad Pitt">
+                            <input type="text" placeholder="Brad Pitt" class = "filter-input">
                         </div>
                         <div class="filter-group filter-toggles">
                             <label class="switch">
@@ -143,8 +143,9 @@
                             <label>ترتیب</label>
                             <select><option>بر اساس امتیاز IMDB</option></select>
                         </div>
+                        <div></div>
+                        <button class="btn btn-primary btn-apply-filters">اعمال فیلتر و جستجو</button>
                     </div>
-                    <button class="btn btn-primary btn-apply-filters">اعمال فیلتر و جستجو</button>
                 </div>
             </div>
         </section>
@@ -319,9 +320,11 @@
             <div class="hero-overlay batman-overlay"></div>
             <div class="container hero-content-container"> <!-- Wrapper for hero content positioning -->
                 <div class="hero-content batman-content"> <!-- Details moved to the right via CSS -->
-                    <h1>The Batman 2022</h1>
-                    <p class="hero-subtitle">بتمن</p>
-                    <h2>خلاصه داستان</h2>
+                    <div class="batman-header">
+                        <h1>The Batman 2022</h1>
+                        <p class="hero-subtitle">بتمن</p>
+                        <h2>خلاصه داستان</h2>
+                    </div>
                     <p class="hero-description">
                        بتمن در دومین سال مبارزه با جرم و جنایت خود به بررسی رشته ای از قتل ها می پردازد که به بررسی فسادی می پردازد که شهر گاتهام را گرفتار میکند و همچنین اینکه چگونه ممکن است....
                     </p>

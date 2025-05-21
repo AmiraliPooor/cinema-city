@@ -71,6 +71,7 @@ img {
 }
 
 .btn-signup {
+  width: 100px;
   background-color: var(--primary-red);
   color: var(--text-white);
   padding: 8px 18px;
@@ -79,6 +80,8 @@ img {
 
 /* --- NEW/MODIFIED --- */
 .btn-login {
+  text-align: center;
+  width: 100px;
   background-color: transparent;
   color: var(--text-light);
   border: 1px solid var(--text-medium);
@@ -99,9 +102,9 @@ html[dir="rtl"] .btn-login {
 
 /* Header */
 header {
-  background-color: rgba(20, 20, 20, 0.8);
+  background-color: rgba(20, 20, 20, 0);
   padding: 10px 0;
-  position: fixed;
+  /* position: fixed; */
   top: 0;
   left: 0;
   width: 100%;
@@ -157,6 +160,8 @@ header nav ul li a:hover {
 }
 
 .search-bar-header {
+  width: 300px;
+  justify-content: space-between;
   display: flex;
   align-items: center;
   background-color: var(--input-bg);
@@ -201,18 +206,18 @@ html[dir="rtl"] .search-bar-header {
   color: var(--text-white);
 }
 .oppenheimer-hero {
-  background-image: url('https://via.placeholder.com/1920x1080/111/fff?text=Oppenheimer+BG');
+  background-image: url('/images/HW4/1.\ hero\ section/b1682b336e29bdcde767eb4214c4803966ea78c2.jpg');
   /* --- NEW/MODIFIED --- */
   justify-content: flex-end; /* Push hero-content to the right */
   /* --- END NEW/MODIFIED --- */
 }
 .batman-hero {
-  background-image: url('https://via.placeholder.com/1920x700/000/fff?text=Batman+BG');
+  background-image: url('/images/HW4/3.\ highlight/batman.png');
   height: auto;
   min-height: 400px;
   padding-bottom: 40px;
   /* --- NEW/MODIFIED --- */
-  justify-content: center; /* Default for Batman, or flex-start if needed */
+  justify-content: end; /* Default for Batman, or flex-start if needed */
   /* --- END NEW/MODIFIED --- */
 }
 
@@ -225,8 +230,12 @@ html[dir="rtl"] .search-bar-header {
   height: 100%;
   background: linear-gradient(to top, rgba(16,16,16,1) 5%, rgba(16,16,16,0.7) 30%, rgba(16,16,16,0) 70%);
 }
-.batman-overlay {
-   background: linear-gradient(to top, rgba(16,16,16,1) 10%, rgba(16,16,16,0.8) 40%, rgba(16,16,16,0.1) 80%);
+.batman-header {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   align-items: flex-start;
+   width: 90%;
 }
 
 /* --- NEW/MODIFIED --- */
@@ -238,6 +247,12 @@ html[dir="rtl"] .search-bar-header {
   align-items: inherit; /* Inherits from .hero-section */
   padding: 0 15px; /* Re-apply container-like padding if needed, or manage on .hero-content */
   box-sizing: border-box;
+}
+.batman-content{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .hero-content {
@@ -360,8 +375,13 @@ html[dir="rtl"] .search-bar-header {
   margin-bottom: 15px;
   color: var(--text-white);
 }
+.simple-search {
+  display: flex;
+  justify-content: space-between;
+}
 .search-box {
   display: flex;
+  width: 600px;
 }
 .search-box input {
   flex-grow: 1;
@@ -378,6 +398,10 @@ html[dir="rtl"] .search-box input {
 }
 html[dir="ltr"] .search-box input {
    border-radius: 4px 0 0 4px;
+}
+
+.filter-input{
+  width: 219px !important;
 }
 
 .search-box button {
@@ -406,7 +430,7 @@ html[dir="ltr"] .search-box button {
 .filter-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 15px;
+  gap: 17px;
   margin-bottom: 20px;
 }
 .filter-group {
@@ -498,8 +522,9 @@ transform: translateX(-20px);
 .btn-apply-filters {
   display: block;
   width: auto;
-  padding: 12px 30px;
-  margin: 20px auto 0;
+  padding: 0px 30px;
+  margin-top: 27px;
+  height: 40px;
 }
 
 
@@ -699,6 +724,9 @@ html[dir="rtl"] .movie-card-info .rating .icon-imdb {
   border: none;
   cursor: pointer;
   font-size: 16px;
+}
+#first-li {
+  margin-left: 25px !important;
 }
 .tab-button.active {
   background-color: var(--primary-red);
