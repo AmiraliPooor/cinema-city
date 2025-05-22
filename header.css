@@ -16,9 +16,19 @@
 
 @font-face {
   font-family: 'btitr';
-  src: url('fonts/btitr.ttf') format('truetype');
+  src: url('fonts/btitr.ttf') format('truetype'); /* Adjust path if needed */
   font-weight: normal;
   font-style: normal;
+}
+
+/* ADDED: @font-face for English/Numeric text */
+@font-face {
+  font-family: 'eng-font'; /* You can name this as you like */
+  src: url('fonts/eng-font.TTF') format('truetype'); /* USER: REPLACE 'your_english_numeric_font_filename.ttf' with your actual font file name */
+  font-weight: bold;
+  font-style: normal;
+  /* Optional: Add unicode-range if your font is specifically for Latin characters/numbers
+  unicode-range: U+0020-007E, U+0030-0039; Example: Basic Latin and numbers */
 }
 
 
@@ -86,33 +96,31 @@ img {
   margin-right: 5px;
 }
 
-/* --- NEW/MODIFIED --- */
 .btn-login {
   text-align: center;
   width: 100px;
   background-color: transparent;
   color: var(--text-light);
   border: 1px solid var(--text-medium);
-  padding: 7px 15px; /* Adjusted padding */
-  margin-left: 10px; /* Space before signup button (RTL: to its right) */
+  padding: 7px 15px;
+  margin-left: 10px; 
 }
 html[dir="rtl"] .btn-login {
   margin-left: 0;
-  margin-right: 10px; /* Space before signup button */
+  margin-right: 10px; 
 }
 .btn-login:hover {
   background-color: var(--input-bg);
   border-color: var(--primary-red);
   color: var(--primary-red);
 }
-/* --- END NEW/MODIFIED --- */
 
 
 /* Header */
 header {
-  background-color: rgba(20, 20, 20, 0);
+  background-color: transparent; /* Consider making this opaque on scroll if needed */
   padding: 10px 0;
-  /* position: fixed; */
+  /* position: fixed; */ /* Uncomment if you want a fixed header, adjust main content padding */
   top: 0;
   left: 0;
   width: 100%;
@@ -124,13 +132,31 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: rgba(136, 136, 136, 0);
+}
+
+.logo-wrapper {
+  display: flex;
+  align-items: center; /* هم‌تراز کردن عمودی لوگو و متن */
+  gap: 10px; /* اطمینان از نداشتن فاصله بین دو آیتم */
 }
 
 .logo {
   font-size: 24px;
   font-weight: bold;
   color: var(--primary-red);
+  /* display: flex; */
+  align-items: center;
+  /* gap: 20px; */
 }
+
+.main-logo-pic {
+  width: 40px; /* یا اندازه‌ای که مناسب طراحی‌ت هست */
+  height: auto;
+  display: block;
+  color: rgb(202, 10, 10);
+}
+
 .logo-subtitle {
   font-size: 12px;
   color: var(--text-medium);
@@ -149,7 +175,7 @@ header nav ul li {
   margin-left: 25px;
 }
 header nav ul li:first-child {
-  margin-left: 0;
+  margin-left: 0; /* This might be overridden by #first-li later */
 }
 
 
@@ -175,7 +201,7 @@ header nav ul li a:hover {
   background-color: var(--input-bg);
   border-radius: 4px;
   padding: 5px;
-  margin-left: 15px; /* Space before login/signup buttons */
+  margin-left: 15px;
 }
 html[dir="rtl"] .search-bar-header {
   margin-left: 0;
@@ -188,6 +214,7 @@ html[dir="rtl"] .search-bar-header {
   color: var(--text-light);
   padding: 5px 8px;
   outline: none;
+  width: 100%; /* Allow input to fill space */
 }
 .search-bar-header input::placeholder {
   color: var(--text-dark);
@@ -199,6 +226,7 @@ html[dir="rtl"] .search-bar-header {
   color: var(--text-dark);
   cursor: pointer;
   font-size: 16px;
+  padding: 5px; /* Add some padding for easier click */
 }
 
 /* Hero Section */
@@ -209,24 +237,21 @@ html[dir="rtl"] .search-bar-header {
   background-size: cover;
   background-position: center top;
   position: relative;
-  display: flex; /* Changed from block to flex for content alignment */
+  display: flex; 
   align-items: flex-end;
   color: var(--text-white);
 }
 .oppenheimer-hero {
   background-image: url('/images/HW4/1.\ hero\ section/b1682b336e29bdcde767eb4214c4803966ea78c2.jpg');
-  /* --- NEW/MODIFIED --- */
-  justify-content: flex-end; /* Push hero-content to the right */
-  /* --- END NEW/MODIFIED --- */
+  justify-content: flex-end; 
 }
+
 .batman-hero {
   background-image: url('/images/HW4/3.\ highlight/batman.png');
   height: auto;
   min-height: 400px;
   padding-bottom: 40px;
-  /* --- NEW/MODIFIED --- */
-  justify-content: end; /* Default for Batman, or flex-start if needed */
-  /* --- END NEW/MODIFIED --- */
+  justify-content: flex-start; 
 }
 
 
@@ -238,52 +263,53 @@ html[dir="rtl"] .search-bar-header {
   height: 100%;
   background: linear-gradient(to top, rgba(16,16,16,1) 5%, rgba(16,16,16,0.7) 30%, rgba(16,16,16,0) 70%);
 }
-.batman-header {
-   display: flex;
-   flex-direction: column;
-   justify-content: space-around;
-   align-items: flex-start;
-   width: 90%;
-}
 
-/* --- NEW/MODIFIED --- */
-/* This wrapper ensures hero-content is within the main page container for consistent padding */
 .hero-content-container {
-  width: 100%; /* Takes full width of the hero section */
-  display: flex; /* Enables alignment of the .hero-content child */
-  justify-content: inherit; /* Inherits from .hero-section (flex-end for oppenheimer, center for batman) */
-  align-items: inherit; /* Inherits from .hero-section */
-  padding: 0 15px; /* Re-apply container-like padding if needed, or manage on .hero-content */
+  width: 100%; 
+  display: flex; 
+  justify-content: inherit; 
+  align-items: inherit; 
+  padding: 0 15px; 
   box-sizing: border-box;
-}
-.batman-content{
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
   padding-bottom: 50px;
-  max-width: 600px; /* Default max-width */
+  max-width: 600px; 
 }
 
 .oppenheimer-hero .hero-content {
   text-align: right;
-  padding-left: 0; /* Remove potential left padding if any */
-  padding-right: 15px; /* Space from the right edge within its container part */
-  max-width: 50%; /* Adjust as needed, e.g., 45% or 600px */
-  margin-left: auto; /* This helps push it right if parent isn't flex enough, but justify-content on parent is better */
+  padding-left: 0; 
+  padding-right: 15px; 
+  max-width: 50%; 
+  margin-left: auto; 
   margin-right: 0;
 }
-.batman-hero .hero-content { /* For Batman, content could be centered or left */
-  text-align: right; /* As per original image, Batman text is also right aligned */
-  max-width: 600px;
-  /* margin: 0 auto; /* if it needs to be centered */
+
+.batman-hero .hero-content {
+  text-align: left; 
+  max-width: 600px; 
+  padding-left: 15px; 
+  padding-right: 0;
+  margin-right: auto; 
+  margin-left: 0;
 }
-/* --- END NEW/MODIFIED --- */
+
+.batman-header {
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start; 
+   width: 100%; 
+}
+.batman-hero .hero-content h1,
+.batman-hero .hero-content .hero-subtitle,
+.batman-hero .hero-content h2 {
+    text-align: left; 
+}
+
 
 .hero-content h1 {
   font-size: 48px;
@@ -303,8 +329,12 @@ html[dir="rtl"] .search-bar-header {
   color: var(--text-light);
   line-height: 1.7;
   margin-bottom: 20px;
-  max-width: 90%;
+  max-width: 90%; 
 }
+.batman-hero .hero-description {
+    max-width: 100%; 
+}
+
 .hero-meta {
   margin-bottom: 25px;
 }
@@ -321,15 +351,25 @@ html[dir="rtl"] .search-bar-header {
 .rating-duration .rating {
   display: flex;
   align-items: center;
-  margin-left: 20px;
+  margin-left: 20px; 
 }
+html[dir="rtl"] .rating-duration .rating {
+    margin-left: 0;
+    margin-right: 20px; 
+}
+
 .rating-icon-box {
   width: 20px;
   height: 20px;
   background-color: var(--yellow-rating);
-  margin-left: 8px;
+  margin-left: 8px; 
   display: inline-block;
 }
+html[dir="rtl"] .rating-icon-box {
+    margin-left: 0;
+    margin-right: 8px; 
+}
+
 .btn-hero-cta {
   padding: 12px 25px;
   font-size: 18px;
@@ -372,8 +412,8 @@ html[dir="rtl"] .search-bar-header {
   background-color: var(--content-bg);
   padding: 30px 0;
 }
-.search-filter-container .container > div {
-  background-color: #2a2a2a;
+.search-filter-container .container > div { 
+  background-color: #2a2a2a; 
   padding: 20px;
   border-radius: 5px;
   margin-bottom: 20px;
@@ -386,10 +426,12 @@ html[dir="rtl"] .search-bar-header {
 .simple-search {
   display: flex;
   justify-content: space-between;
+  align-items: center; 
 }
 .search-box {
   display: flex;
-  width: 600px;
+  width: 60%; 
+  max-width: 600px;
 }
 .search-box input {
   flex-grow: 1;
@@ -397,7 +439,6 @@ html[dir="rtl"] .search-bar-header {
   background-color: var(--input-bg);
   border: 1px solid var(--input-border);
   color: var(--text-light);
-  border-radius: 4px 0 0 4px;
   font-size: 16px;
   outline: none;
 }
@@ -408,13 +449,12 @@ html[dir="ltr"] .search-box input {
    border-radius: 4px 0 0 4px;
 }
 
-.filter-input{
-  width: 219px !important;
+.filter-input{ 
+  width: 219px !important; 
 }
 
 .search-box button {
   padding: 12px 25px;
-  border-radius: 0 4px 4px 0;
   font-size: 16px;
 }
 html[dir="rtl"] .search-box button {
@@ -438,7 +478,7 @@ html[dir="ltr"] .search-box button {
 .filter-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 17px;
+  gap: 17px; 
   margin-bottom: 20px;
 }
 .filter-group {
@@ -458,81 +498,99 @@ html[dir="ltr"] .search-box button {
   border-radius: 4px;
   font-size: 14px;
   width: 100%;
+  box-sizing: border-box; 
 }
+
 .filter-group select {
   appearance: none;
+  -webkit-appearance: none; 
+  -moz-appearance: none;    
   background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23aaa' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
   background-repeat: no-repeat;
-  background-position: left 10px center;
-  padding-left: 30px;
+  background-position: left 10px center; 
+  padding-left: 35px; 
+  padding-right: 10px; 
 }
 html[dir="rtl"] .filter-group select {
-  background-position: right 10px center;
-  padding-right: 30px;
-  padding-left: 10px;
+    padding-left: 35px;  
+    padding-right: 10px; 
 }
+
 
 .filter-toggles {
   display: flex;
   align-items: center;
   gap: 15px;
-  padding-top: 20px;
+  padding-top: 20px; 
 }
 .switch {
-position: relative;
-display: inline-flex;
-align-items: center;
-width: auto;
-color: var(--text-light);
-font-size: 14px;
-cursor: pointer;
+  position: relative;
+  display: inline-flex; 
+  align-items: center;
+  color: var(--text-light);
+  font-size: 14px;
+  cursor: pointer;
+  -webkit-user-select: none; 
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .switch input { 
-opacity: 0;
-width: 0;
-height: 0;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute; 
 }
 .slider {
-width: 40px;
-height: 20px;
-background-color: #555;
-transition: .4s;
-border-radius: 20px;
-position: relative;
-margin-right: 8px;
+  width: 40px;
+  height: 20px;
+  background-color: #555;
+  transition: .4s;
+  border-radius: 20px;
+  position: relative;
+}
+html[dir="ltr"] .slider {
+  margin-right: 8px; 
 }
 html[dir="rtl"] .slider {
-  margin-right: 0;
-  margin-left: 8px;
+  margin-left: 8px;  
 }
 
-.slider:before {
-position: absolute;
-content: "";
-height: 16px;
-width: 16px;
-left: 2px;
-bottom: 2px;
-background-color: white;
-transition: .4s;
-border-radius: 50%;
+.slider:before { 
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  bottom: 2px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
 }
+html[dir="ltr"] .slider:before {
+  left: 2px; 
+}
+html[dir="rtl"] .slider:before {
+  right: 2px; 
+}
+
 input:checked + .slider {
-background-color: var(--primary-red);
+  background-color: var(--primary-red);
 }
-input:checked + .slider:before {
-transform: translateX(20px);
+
+html[dir="ltr"] input:checked + .slider:before {
+  transform: translateX(20px);
 }
 html[dir="rtl"] input:checked + .slider:before {
-transform: translateX(-20px);
+  transform: translateX(-20px); 
 }
 
+
 .btn-apply-filters {
-  display: block;
-  width: auto;
-  padding: 0px 30px;
+  display: block; 
+  width: auto;    
+  padding: 10px 30px; 
   margin-top: 27px;
-  height: 40px;
+  height: auto; 
 }
 
 
@@ -550,45 +608,71 @@ transform: translateX(-20px);
   font-size: 24px;
   color: var(--text-white);
 }
+
+.carousel-nav-arrows {
+    display: flex;
+    gap: 10px; 
+}
+
+.row-header .arrow {
+    background-color: rgba(30, 30, 30, 0.7);
+    color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    width: 36px; 
+    height: 36px;
+    font-size: 20px; 
+    cursor: pointer;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+.row-header .arrow:hover {
+    background-color: rgba(50, 50, 50, 0.9);
+    border-color: var(--text-medium);
+}
+
+
 .view-all {
   color: var(--text-medium);
   font-size: 14px;
   border: 1px solid var(--text-dark);
   padding: 5px 10px;
   border-radius: 4px;
-  display: inline-block; /* For centering in its container */
+  display: inline-block; 
 }
 .view-all:hover {
   color: var(--primary-red);
   border-color: var(--primary-red);
 }
-/* --- NEW/MODIFIED --- */
 .view-all-container {
   text-align: center;
-  margin-top: 20px; /* Space between carousel and this button */
-  margin-bottom: 10px; /* Space after button before next section */
+  margin-top: 20px; 
+  margin-bottom: 10px; 
 }
-/* --- END NEW/MODIFIED --- */
+
 
 .carousel {
   position: relative;
 }
 .carousel-track {
   display: flex;
-  overflow-x: auto;
-  padding-bottom: 15px;
+  overflow-x: auto; 
+  scroll-behavior: smooth; 
+  padding-bottom: 15px; 
   gap: 15px;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
 }
 .carousel-track::-webkit-scrollbar {
-  display: none;
+  display: none; 
 }
 
-.carousel .arrow {
+.carousel .arrow { 
   position: absolute;
   top: 50%;
-  transform: translateY(-70%);
+  transform: translateY(-70%); 
   background-color: rgba(30, 30, 30, 0.7);
   color: white;
   border: 1px solid var(--border-color);
@@ -602,51 +686,50 @@ transform: translateX(-20px);
   align-items: center;
   justify-content: center;
 }
-.carousel .arrow.prev { right: -20px; }
-.carousel .arrow.next { left: -20px; }
-
-html[dir="rtl"] .carousel .arrow.prev { left: -20px; right: auto; }
-html[dir="rtl"] .carousel .arrow.next { right: -20px; left: auto; }
 
 
 .movie-card {
   background-color: var(--card-bg);
   border-radius: 5px;
-  overflow: hidden;
-  min-width: 180px;
-  max-width: 200px;
+  overflow: hidden; 
+  min-width: 180px; 
+  max-width: 200px; 
+  flex: 0 0 auto; 
   position: relative;
   transition: transform 0.3s ease;
 }
 .movie-card:hover {
   transform: scale(1.05);
-  z-index: 5;
+  z-index: 5; 
 }
 .movie-card img {
   width: 100%;
-  aspect-ratio: 2 / 3;
+  aspect-ratio: 2 / 3; 
   object-fit: cover;
 }
 .movie-card-info {
   padding: 8px 10px;
-  font-size: 15px;
+  font-size: 15px; 
   color: var(--text-medium);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #28282800;
+  background-color: #282828; 
 }
 .movie-card-info .rating .icon-imdb {
   display: inline-block;
-  width: 12px;
+  width: 12px; 
   height: 12px;
   background-color: var(--yellow-rating);
+  /* background-image: url(/images/HW4/1.\ hero\ section/imdb.png); */
+}
+html[dir="ltr"] .movie-card-info .rating .icon-imdb {
   margin-left: 4px;
 }
 html[dir="rtl"] .movie-card-info .rating .icon-imdb {
   margin-right: 4px;
-  margin-left: 0;
 }
+
 .movie-card h3 {
   font-size: 15px;
   color: var(--text-light);
@@ -655,7 +738,9 @@ html[dir="rtl"] .movie-card-info .rating .icon-imdb {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-align: center; /* MODIFIED: Center movie title */
 }
+
 .movie-card-overlay {
   position: absolute;
   top: 0;
@@ -665,13 +750,21 @@ html[dir="rtl"] .movie-card-info .rating .icon-imdb {
   background-color: rgba(20, 20, 20, 0.95);
   color: var(--text-light);
   padding: 15px;
+  box-sizing: border-box; 
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
-  overflow-y: auto;
+  overflow-y: auto; 
   font-size: 13px;
   line-height: 1.5;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;   
+  text-align: center;    
 }
+
 .movie-card:hover .movie-card-overlay {
   opacity: 1;
   visibility: visible;
@@ -686,31 +779,36 @@ html[dir="rtl"] .movie-card-info .rating .icon-imdb {
   font-size: 12px;
 }
 .movie-card-overlay p strong {
-  color: var(--text-medium);
+  color: var(--text-medium); 
 }
 
 /* Join Us Section */
 .join-us-section {
-  background-color: #2a2a2a;
+  background-color: #2a2a2a; 
   padding: 50px 0;
   margin-top: 30px;
 }
 .join-us-container {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center; 
   gap: 40px;
 }
-.join-us-form {
-  flex-basis: 45%;
-  background-color: var(--content-bg);
-  padding: 30px;
-  border-radius: 8px;
-}
-.join-us-text {
+
+/* MODIFIED: Join Us section element ordering */
+.join-us-text { /* This will be on the right in RTL */
   flex-basis: 50%;
   color: var(--text-light);
+  order: 1; /* Lower order comes first (right in RTL flex row) */
 }
+.join-us-form { /* This will be on the left in RTL */
+  flex-basis: 45%;
+  background-color: var(--content-bg); 
+  padding: 30px;
+  border-radius: 8px;
+  order: 2; /* Higher order comes later (left in RTL flex row) */
+}
+
 .join-us-text h2 {
   font-size: 32px;
   margin-bottom: 20px;
@@ -732,16 +830,20 @@ html[dir="rtl"] .movie-card-info .rating .icon-imdb {
   border: none;
   cursor: pointer;
   font-size: 16px;
+  transition: background-color 0.3s, color 0.3s; 
 }
-#first-li {
-  margin-left: 25px !important;
+#first-li { 
+  margin-left: 25px !important; 
 }
 .tab-button.active {
   background-color: var(--primary-red);
   color: var(--text-white);
 }
-.tab-button:first-child { border-radius: 0 5px 5px 0; }
-.tab-button:last-child { border-radius: 5px 0 0 5px; }
+html[dir="rtl"] .tab-button:first-child { border-radius: 0 5px 5px 0; }
+html[dir="rtl"] .tab-button:last-child { border-radius: 5px 0 0 5px; }
+html[dir="ltr"] .tab-button:first-child { border-radius: 5px 0 0 5px; }
+html[dir="ltr"] .tab-button:last-child { border-radius: 0 5px 5px 0; }
+
 
 .form-content { display: none; }
 .form-content.active { display: block; }
@@ -767,6 +869,14 @@ html[dir="rtl"] .movie-card-info .rating .icon-imdb {
 }
 .form-group input::placeholder { color: var(--text-dark); }
 
+/* MODIFIED: Align placeholder and text for #phone input */
+#phone {
+    text-align: right;
+}
+#phone::placeholder {
+    text-align: right;
+}
+
 .btn-form-submit {
   width: 100%;
   padding: 12px;
@@ -787,69 +897,104 @@ html[dir="rtl"] .movie-card-info .rating .icon-imdb {
   background-color: var(--border-color);
   position: absolute;
   top: 50%;
+  transform: translateY(-50%);
 }
-.form-separator::before { right: 0; }
-.form-separator::after { left: 0; }
+html[dir="rtl"] .form-separator::before { right: 0; }
+html[dir="rtl"] .form-separator::after { left: 0; }
+html[dir="ltr"] .form-separator::before { left: 0; }
+html[dir="ltr"] .form-separator::after { right: 0; }
+
 
 .btn-google {
   width: 100%;
-  background-color: #424242;
+  background-color: #424242; 
   color: var(--text-white);
   padding: 12px;
   font-size: 15px;
-  border: 1px solid #555;
+  border: 1px solid #555; 
 }
 .btn-google:hover { background-color: #505050; }
 
 /* Footer */
 footer {
-  background-color: var(--dark-bg);
+  background-color: var(--dark-bg); 
   color: var(--text-medium);
   border-top: 1px solid var(--border-color);
 }
-.footer-main {
-  background-color: var(--primary-red);
+.footer-main { 
+  background-color: #161515;
   padding: 40px 0;
-  color: var(--text-white);
+  color: var(--text-white); 
 }
 .footer-main-container {
   display: flex;
   justify-content: space-between;
   gap: 30px;
+  flex-wrap: wrap; 
 }
 .footer-about {
   flex-basis: 40%;
+  min-width: 280px; 
 }
 .footer-logo {
-  font-size: 24px;
+  background-color: var(--primary-red);
+  display: flex;
+  align-items: center;
+  font-size: 28px; /* بزرگ‌تر کردن فونت */
+  gap: 15px;       /* فاصله بیشتر بین لوگو و متن */
   color: var(--text-white);
   margin-bottom: 15px;
+  padding: 15px 25px; /* افزایش اندازه کلی عنصر */
+  border-radius: 999px; /* لبه‌های کاملاً گرد (دایره‌ای) */
+}
+
+
+.logo-img {
+  width: 40px; /* یا اندازه‌ای که مناسب طراحی‌ت هست */
+  height: auto;
 }
 .footer-about p {
   font-size: 14px;
   line-height: 1.7;
   margin-bottom: 20px;
-  color: #f0f0f0;
+  color: #f0f0f0; 
 }
 .footer-contact {
   font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* برای حالت واکنش‌گرا */
+  direction: rtl; /* چون متن فارسیه */
 }
-.footer-contact span { display: block; margin-bottom: 10px; }
-.social-icons a {
-  color: var(--text-white);
-  margin-right: 10px;
-  font-size: 20px;
+
+.footer-contact span {
+  display: inline-block;
+  margin-bottom: 0;
 }
-html[dir="rtl"] .social-icons a {
-  margin-left: 10px;
-  margin-right: 0;
+.social-icons {
+  display: flex;
+  gap: 30px;
+  
 }
+
+.social-icons a:hover img {
+  opacity: 0.65; /* Optional: Add a slight hover effect */
+}
+/* .social-icons a:hover {
+    color: #ddd; 
+} */
 
 .footer-links-group {
   flex-basis: 55%;
   display: flex;
   justify-content: space-between;
   gap: 20px;
+  flex-wrap: wrap; 
+}
+.footer-links-column {
+  flex: 1 1 150px; 
+  min-width: 150px;
 }
 .footer-links-column h4 {
   font-size: 18px;
@@ -865,22 +1010,85 @@ html[dir="rtl"] .social-icons a {
   color: #f0f0f0;
   font-size: 14px;
   line-height: 2;
-  display: block;
+  display: block; 
+  text-decoration: none;
 }
 .footer-links-column ul li a:hover {
-  color: #ccc;
+  color: #ccc; 
+  text-decoration: underline;
 }
 .english-links {
-  align-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  text-decoration: underline;
+  align-self: center;
+  align-items: center; /* این باعث می‌شه همه‌ی آیتم‌ها وسط چین بشن */
 }
-.english-links h4 { visibility: hidden; }
+
+.english-links ul {
+  list-style: none; /* حذف بولت‌ها */
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.english-links li {
+  margin-bottom: 8px; /* فاصله بین لینک‌ها */
+}
+
+.english-links a{
+  align-self: flex-end; 
+}
+
+.english-links h4 {
+   visibility: hidden; 
+  } 
 
 .footer-bottom {
-  background-color: var(--content-bg);
+  background-color: var(--content-bg); 
   text-align: center;
   padding: 15px 0;
   font-size: 13px;
-  color: var(--text-dark);
-  border-top: 1px solid var(--border-color);
+  color: var(--text-dark); 
+  border-top: 1px solid var(--border-color); 
 }
 .footer-bottom p { margin: 0; }
+
+
+/* ADDED: Apply EnglishNumericFont to specific English/Numeric elements */
+.hero-section .hero-content h1, /* For movie titles like "Oppenheimer 2023", "The Batman 2022" */
+.movie-card h3,                 /* For card titles like "Tick Tick... Boom 2021" */
+.rating,                        /* For "7.5", "8.3/10" etc. */
+.duration,                      /* For "🕒 3 Hours", "🕒 1h 55m" etc. */
+.footer-links-column.english-links ul li a, /* For "Privacy Policy", "Terms & Conditions" etc. */
+.btn-google,                    /* For the "G" and "Google" text if any */
+.filter-group input[type="text"][placeholder="Brad Pitt"], /* For the input text if user types English */
+.movie-card-overlay p strong + span /* For rating category like PG-13, R, etc. if it was a span after strong. More specific selectors might be needed if HTML varies */
+{
+    font-family: 'EnglishNumericFont', sans-serif; /* Fallback to generic sans-serif */
+}
+
+/* For specific placeholders that are in English */
+.filter-group input[type="text"][placeholder="Brad Pitt"]::placeholder {
+    font-family: 'EnglishNumericFont', sans-serif;
+}
+
+/* To apply EnglishNumericFont to age ratings like PG-13, R, TV-MA, G in the movie card overlay
+   This assumes they are simple text nodes or need a specific class/span if not already covered.
+   If they are part of the <p> tag like <p><strong>رده سنی:</strong> PG-13</p>, this is tricky.
+   Let's assume the numbers/English parts of .rating and .duration are handled.
+   If specific English words like "Genre:" or "PG-13" need this font and are not in elements
+   already targeted, you might need to wrap them in <span> tags with a class in your HTML
+   and then style that class with 'EnglishNumericFont'.
+   The existing selectors for .rating and .duration should cover most numeric parts.
+*/
+
+/* Example for the copyright year if it's consistently numeric/English */
+.footer-bottom p {
+    /* This will apply to the whole string "© 2023 سینما سیتی. تمام حقوق محفوظ است."
+       If only "2023" should use EnglishNumericFont, it needs a span.
+       For now, relying on EnglishNumericFont having Farsi glyphs or graceful fallback.
+       Or, if 'btitr' handles numbers well, this might not be needed for mixed content.
+    */
+    /* font-family: 'EnglishNumericFont', 'btitr', sans-serif; */ /* Example if mixed content needs careful handling */
+}

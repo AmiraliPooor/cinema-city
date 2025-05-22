@@ -4,14 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>سینما سیتی</title>
-    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="header.css"> <!-- Make sure this is your CSS file name -->
 </head>
 
 <body>
 
+    <!-- ... (header and hero-section oppenheimer remain the same) ... -->
     <header>
         <div class="container header-container">
-            <div class="logo">سینما سیتی <span class="logo-subtitle">پخش آنلاین و دانلود</span></div>
+            <div class="logo-wrapper">
+                <img src="/images/logo.png" alt="لوگوی سینما سیتی" class="main-logo-pic" />
+                <div class="logo">سینما سیتی <span class="logo-subtitle">پخش آنلاین و دانلود</span></div>
+            </div>
             <nav>
                 <ul>
                     <li><a href="#" class="active" id="first-li">صفحه اصلی</a></li>
@@ -126,7 +130,7 @@
                         </div>
                         <div class="filter-group">
                             <label>کارگردان</label>
-                            <input type="text" placeholder="Brad Pitt" class = "filter-input">
+                            <input type="text" placeholder="Brad Pitt" class = "filter-input"> <!-- Assuming this placeholder might also be English -->
                         </div>
                         <div class="filter-group filter-toggles">
                             <label class="switch">
@@ -155,10 +159,13 @@
             <div class="container">
                 <div class="row-header">
                     <h2>فیلم های پیشنهادی</h2>
-                    <!-- "مشاهده همه" removed from here -->
+                    <div class="carousel-nav-arrows">
+                        <button class="arrow prev">‹</button>
+                        <button class="arrow next">›</button>
+                    </div>
                 </div>
                 <div class="carousel">
-                    <button class="arrow prev">‹</button>
+                    <!-- Arrows removed from here -->
                     <div class="carousel-track">
                         <!-- Movie Card Example -->
                         <div class="movie-card">
@@ -227,9 +234,9 @@
                             </div>
                         </div>
                     </div>
-                    <button class="arrow next">›</button>
+                    <!-- Arrows removed from here -->
                 </div>
-                <div class="view-all-container"> <!-- "مشاهده همه" button moved here -->
+                <div class="view-all-container">
                     <a href="#" class="view-all">مشاهده همه ›</a>
                 </div>
             </div>
@@ -239,9 +246,13 @@
             <div class="container">
                 <div class="row-header">
                     <h2>سریالهای پیشنهادی</h2>
+                    <div class="carousel-nav-arrows">
+                        <button class="arrow prev">‹</button>
+                        <button class="arrow next">›</button>
+                    </div>
                 </div>
                 <div class="carousel">
-                     <button class="arrow prev">‹</button>
+                    <!-- Arrows removed from here -->
                     <div class="carousel-track">
                         <div class="movie-card">
                             <img src="/images/HW4/4. recommondation series/Reacher.jpg" alt="Reacher">
@@ -309,7 +320,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="arrow next">›</button>
+                     <!-- Arrows removed from here -->
                 </div>
                 <div class="view-all-container">
                     <a href="#" class="view-all">مشاهده همه ›</a>
@@ -319,8 +330,8 @@
         
         <section class="hero-section batman-hero">
             <div class="hero-overlay batman-overlay"></div>
-            <div class="container hero-content-container"> <!-- Wrapper for hero content positioning -->
-                <div class="hero-content batman-content"> <!-- Details moved to the right via CSS -->
+            <div class="container hero-content-container">
+                <div class="hero-content batman-content">
                     <div class="batman-header">
                         <h1>The Batman 2022</h1>
                         <p class="hero-subtitle">بتمن</p>
@@ -345,9 +356,13 @@
             <div class="container">
                 <div class="row-header">
                     <h2>انیمیشنهای پیشنهادی</h2>
+                    <div class="carousel-nav-arrows">
+                        <button class="arrow prev">‹</button>
+                        <button class="arrow next">›</button>
+                    </div>
                 </div>
                  <div class="carousel">
-                    <button class="arrow prev">‹</button>
+                    <!-- Arrows removed from here -->
                     <div class="carousel-track">
                          <div class="movie-card">
                             <img src="/images/HW4/5. animation/Sonic The Hedgehg.jpg" alt="Sonic">
@@ -380,7 +395,7 @@
                              <div class="movie-card-overlay"><h4>خلاصه داستان</h4><p>خلاصه چه می شد اگر...؟</p><p><strong>ژانر:</strong> انیمیشن، اکشن</p><p><strong>رده سنی:</strong> TV-14</p></div>
                         </div>
                     </div>
-                    <button class="arrow next">›</button>
+                    <!-- Arrows removed from here -->
                 </div>
                 <div class="view-all-container">
                     <a href="#" class="view-all">مشاهده همه ›</a>
@@ -392,9 +407,13 @@
             <div class="container">
                 <div class="row-header">
                     <h2>فیلم و سریالهای اکشن</h2>
+                    <div class="carousel-nav-arrows">
+                        <button class="arrow prev">‹</button>
+                        <button class="arrow next">›</button>
+                    </div>
                 </div>
                  <div class="carousel">
-                    <button class="arrow prev">‹</button>
+                    <!-- Arrows removed from here -->
                     <div class="carousel-track">
                         <div class="movie-card">
                             <img src="/images/HW4/6. action movie/John Wick.jpg" alt="John Wick 4">
@@ -427,7 +446,7 @@
                             <div class="movie-card-overlay"><h4>خلاصه داستان</h4><p>خلاصه پسران...</p><p><strong>ژانر:</strong> اکشن، کمدی سیاه</p><p><strong>رده سنی:</strong> TV-MA</p></div>
                         </div>
                     </div>
-                    <button class="arrow next">›</button>
+                    <!-- Arrows removed from here -->
                 </div>
                  <div class="view-all-container">
                     <a href="#" class="view-all">مشاهده همه ›</a>
@@ -482,18 +501,22 @@
         <div class="footer-main">
             <div class="container footer-main-container">
                 <div class="footer-about">
-                    <h2 class="footer-logo">logo سینما سیتی؛ رسانه ای برای همه</h2>
-                    <p>
-                        وبسایت ++++++ فعالیت خود را از سال 1396 شروع کرده است و به صورت حرفه ای به دانلود فیلم و
+                    <h2 class="footer-logo">
+                        <img src="/images/logo.png" alt="لوگوی سینما سیتی" class="logo-img" />سینما سیتی؛ رسانه ای برای همه</h2><p>
+                        وبسایت سینما سیتی فعالیت خود را از سال 1396 شروع کرده است و به صورت حرفه ای به دانلود فیلم و
                         سریال بدون سانسور پرداخته است. در این وبسایت شما میتوانید هر فیلم یا سرییا یا انیمیشن مورد
                         علاقه ی خود را به صورت آنلاین مشاهده و دانلود کنید. همچنین زیرنویس ها و دوبله هایی
                         اختصاصی ای برای تمام فیلم و سریالها تعیین شده است.
                     </p>
                     <div class="footer-contact">
-                        <span>تلفن پشتیبانی: 0912*****15</span>
+                        
                         <div class="social-icons">
-                            <a href="#">[T]</a> <a href="#">[Y]</a> <a href="#">[I]</a> <a href="#">[F]</a>
+                            <a href="#"><img src="images/HW4/8. footer/telegram.png" alt="Telegram"></a>
+                            <a href="#"><img src="images/HW4/8. footer/twitter.png" alt="Twitter"></a>
+                            <a href="#"><img src="images/HW4/8. footer/instagram.png" alt="Instagram"></a>
+                            <a href="#"><img src="images/HW4/8. footer/facebook.png" alt="Facebook"></a>
                         </div>
+                        <span>تلفن پشتیبانی: <span class="english-numeric">09119876543</span></span>
                     </div>
                 </div>
                 <div class="footer-links-group">
@@ -539,7 +562,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2023 سینما سیتی. تمام حقوق محفوظ است.</p>
+            <p>© 2025 سینما سیتی. تمام حقوق متعلق به امیرعلی محمدپور است.</p>
         </div>
     </footer>
 
