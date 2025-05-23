@@ -154,7 +154,6 @@ header {
   width: 40px; /* یا اندازه‌ای که مناسب طراحی‌ت هست */
   height: auto;
   display: block;
-  color: rgb(202, 10, 10);
 }
 
 .logo-subtitle {
@@ -693,7 +692,7 @@ html[dir="rtl"] input:checked + .slider:before {
   border-radius: 5px;
   overflow: hidden; 
   min-width: 180px; 
-  max-width: 200px; 
+  max-width: 265px; 
   flex: 0 0 auto; 
   position: relative;
   transition: transform 0.3s ease;
@@ -718,14 +717,14 @@ html[dir="rtl"] input:checked + .slider:before {
 }
 .movie-card-info .rating .icon-imdb {
   display: inline-block;
-  width: 12px; 
-  height: 12px;
-  background-color: var(--yellow-rating);
+  width: 20px; 
+  height: 20px;
+  /* background-color: var(--yellow-rating); */
   /* background-image: url(/images/HW4/1.\ hero\ section/imdb.png); */
 }
-html[dir="ltr"] .movie-card-info .rating .icon-imdb {
+/* html[dir="ltr"] .movie-card-info .rating .icon-imdb {
   margin-left: 4px;
-}
+} */
 html[dir="rtl"] .movie-card-info .rating .icon-imdb {
   margin-right: 4px;
 }
@@ -739,6 +738,14 @@ html[dir="rtl"] .movie-card-info .rating .icon-imdb {
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: center; /* MODIFIED: Center movie title */
+}
+
+.rate-section{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* gap: 10; */
+  width: 50px;
 }
 
 .movie-card-overlay {
